@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Moon, Sun, Menu, X, Sparkles, Send } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { personalInfo } from "../data/portfolioData";
 
 interface NavbarProps {
   darkMode: boolean;
@@ -19,105 +20,84 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
   }, []);
 
   const navLinks = [
+    { name: "Home", href: "#" },
     { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
+    { name: "Education", href: "#education" },
+    { name: "Career", href: "#career" },
     { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 sm:pt-6 transition-all duration-300">
       <nav
-        className={`w-full max-w-6xl transition-all duration-300 rounded-2xl px-5 py-3 flex items-center justify-between ${
+        className={`w-full max-w-5xl transition-all duration-300 rounded-full px-5 sm:px-6 py-2.5 flex items-center justify-between ${
           scrolled
-            ? "glass-panel shadow-lg shadow-slate-200/50 dark:shadow-indigo-950/20 border border-slate-200/80 dark:border-slate-700/40 bg-white/85 dark:bg-slate-950/80 backdrop-blur-xl"
-            : "bg-transparent border border-transparent"
+            ? "bg-white/85 dark:bg-zinc-900/85 backdrop-blur-xl border border-zinc-200/80 dark:border-zinc-800 shadow-md shadow-zinc-200/30 dark:shadow-none"
+            : "bg-white/90 dark:bg-zinc-900/90 border border-zinc-200/70 dark:border-zinc-800/80 shadow-xs backdrop-blur-md"
         }`}
       >
         {/* Brand / Logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
-          <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white font-bold text-lg shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
-            S
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 border-2 border-white dark:border-slate-950 rounded-full animate-pulse" />
+        <a href="#" className="flex items-center gap-3 group">
+          <div className="w-8 h-8 rounded-xl border border-indigo-200 dark:border-indigo-800/60 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-bold text-xs flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+            {personalInfo.name.substring(0, 2).toUpperCase()}
           </div>
-          <div className="flex flex-col">
-            <span className="text-base font-bold tracking-tight text-slate-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-cyan-300 transition-colors">
-              Sachin<span className="text-cyan-600 dark:text-cyan-400">.dev</span>
+          <div className="flex flex-col text-left">
+            <span className="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+              {personalInfo.name}
             </span>
-            <span className="text-[10px] uppercase font-mono tracking-widest text-slate-500 dark:text-slate-400 -mt-0.5">
-              Full Stack • AI
+            <span className="text-[9px] font-mono tracking-widest text-zinc-400 uppercase -mt-0.5">
+              PORTFOLIO
             </span>
           </div>
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-1 bg-slate-100/90 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-200/80 dark:border-slate-700/30 backdrop-blur-md">
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="px-4 py-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white rounded-full hover:bg-slate-200/70 dark:hover:bg-slate-800/80 transition-all duration-200"
+              className="px-3.5 py-1.5 text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors"
             >
               {link.name}
             </a>
           ))}
         </div>
 
-        {/* Right CTA & Controls */}
-        <div className="flex items-center gap-2.5">
-          {/* Theme Toggle */}
+        {/* Right Action: Theme Toggle */}
+        <div className="flex items-center gap-2">
           <button
             onClick={() => setDarkMode((prev) => !prev)}
             aria-label="Toggle theme"
-            className="p-2 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-400/40 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200 shadow-sm"
+            className="w-8 h-8 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-2xs"
           >
-            {darkMode ? <Sun size={17} className="text-amber-400" /> : <Moon size={17} className="text-indigo-600" />}
+            {darkMode ? <Sun size={15} className="text-amber-400" /> : <Moon size={15} className="text-indigo-600" />}
           </button>
 
-          {/* Hire Me Button */}
-          <a
-            href="#contact"
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-600/25 hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-indigo-400/30"
-          >
-            <Sparkles size={14} className="animate-spin" style={{ animationDuration: "4s" }} />
-            <span>Get in Touch</span>
-          </a>
-
-          {/* Mobile Menu Hamburger */}
+          {/* Mobile menu toggle */}
           <button
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
-            className="md:hidden p-2 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+            className="md:hidden p-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300"
           >
-            {mobileMenuOpen ? <X size={19} /> : <Menu size={19} />}
+            {mobileMenuOpen ? <X size={17} /> : <Menu size={17} />}
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-20 left-4 right-4 p-4 rounded-2xl glass-panel bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700/60 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200 flex flex-col gap-2">
+        <div className="md:hidden absolute top-20 left-4 right-4 p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col gap-2 backdrop-blur-xl">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 rounded-xl transition-colors"
+              className="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition-colors"
             >
               {link.name}
             </a>
           ))}
-          <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex justify-center">
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-semibold rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 text-white"
-            >
-              <Send size={14} />
-              <span>Let's Connect</span>
-            </a>
-          </div>
         </div>
       )}
     </header>

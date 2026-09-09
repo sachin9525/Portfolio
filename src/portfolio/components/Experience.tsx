@@ -4,14 +4,14 @@ import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 
 export const Experience: React.FC = () => {
   return (
-    <section id="experience" className="py-20 px-4 relative">
-      <div className="max-w-4xl mx-auto">
+    <section id="career" className="py-20 px-4 relative">
+      <div className="max-w-5xl mx-auto">
 
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-3">
             <Briefcase size={13} />
-            <span>Career Path</span>
+            <span>Career Journey</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3">
             Experience & <span className="bg-gradient-to-r from-indigo-600 via-cyan-600 to-sky-600 dark:from-indigo-400 dark:via-cyan-300 dark:to-sky-400 bg-clip-text text-transparent">Milestones</span>

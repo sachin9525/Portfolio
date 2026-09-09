@@ -20,6 +20,7 @@ export interface HangingIdCardProps {
   ropeLength?: number;
   ropeColor?: string;
   className?: string;
+  cardClassName?: string;
   name?: string;
   role?: string;
   badgeId?: string;
@@ -57,6 +58,7 @@ export const HangingIdCard = ({
   ropeLength  = 130, // Increased height for a more prominent drop
   ropeColor   = "#4a5568",
   className,
+  cardClassName,
   name        = "John Lightswind",
   role        = "UI Developer",
   badgeId     = "LW-2025",
@@ -163,10 +165,10 @@ export const HangingIdCard = ({
       className={cn("flex flex-col items-center select-none", className)}
       style={{ touchAction: "none" }}
     >
-      {/* Ceiling anchor */}
+      {/* Ceiling anchor matching lanyard */}
       <div
-        className="w-3 h-3 rounded-full shadow-md z-10 relative"
-        style={{ background: accentColor }}
+        className="w-4 h-2 rounded-full shadow-xs z-10 relative opacity-90"
+        style={{ background: ropeColor }}
       />
 
       {/* The Pendulum Assembly (Rope + Card) */}
@@ -189,7 +191,7 @@ export const HangingIdCard = ({
         </div>
 
         {/* ID Card */}
-        <div className="relative w-52 rounded-2xl overflow-hidden shadow-2xl border border-white/20 dark:border-white/10 bg-white dark:bg-zinc-900 pointer-events-none mt-[-2px]">
+        <div className={cn("relative w-52 rounded-2xl overflow-hidden shadow-2xl border border-white/20 dark:border-white/10 bg-white dark:bg-zinc-900 pointer-events-none mt-[-2px]", cardClassName)}>
           {children ?? (
             <div className="flex flex-col h-full">
               {/* Card header banner */}
