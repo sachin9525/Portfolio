@@ -28,9 +28,9 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 sm:pt-6 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center portfolio-gutter pt-4 sm:pt-6 transition-all duration-300">
       <nav
-        className={`w-full max-w-5xl transition-all duration-300 rounded-full px-5 sm:px-6 py-2.5 flex items-center justify-between ${
+        className={`portfolio-container transition-all duration-300 rounded-full px-5 sm:px-6 py-2.5 flex items-center justify-between ${
           scrolled
             ? "bg-white/85 dark:bg-zinc-900/85 backdrop-blur-xl border border-zinc-200/80 dark:border-zinc-800 shadow-md shadow-zinc-200/30 dark:shadow-none"
             : "bg-white/90 dark:bg-zinc-900/90 border border-zinc-200/70 dark:border-zinc-800/80 shadow-xs backdrop-blur-md"
@@ -87,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-20 left-4 right-4 p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col gap-2 backdrop-blur-xl">
+        <div className="md:hidden portfolio-mobile-menu absolute top-20 p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-800 shadow-xl flex flex-col gap-2 backdrop-blur-xl">
           {navLinks.map((link) => (
             <a
               key={link.name}

@@ -21,8 +21,8 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-20 px-4 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto">
+    <section className="portfolio-gutter py-20 relative overflow-hidden">
+      <div className="portfolio-container">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12">

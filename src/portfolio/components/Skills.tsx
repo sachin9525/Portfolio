@@ -19,8 +19,8 @@ export const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-20 px-4 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="portfolio-gutter py-20 relative">
+      <div className="portfolio-container">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12">
@@ -57,7 +57,7 @@ export const Skills: React.FC = () => {
         </div>
 
         {/* Selected Category Details & Skill Cards */}
-        <div className="max-w-4xl mx-auto">
+        <div className="portfolio-container">
           <div className="mb-6 text-center">
             <p className="text-slate-600 dark:text-slate-400 text-sm italic">
               {skillsData[activeTab].description}

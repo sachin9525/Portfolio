@@ -4,8 +4,8 @@ import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 
 export const Experience: React.FC = () => {
   return (
-    <section id="career" className="py-20 px-4 relative">
-      <div className="max-w-5xl mx-auto">
+    <section id="career" className="portfolio-gutter py-20 relative">
+      <div className="portfolio-container">
 
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-14">

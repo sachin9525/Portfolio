@@ -13,6 +13,23 @@
   }
 }
 
+/* Shared page edges for the navigation, sections, and footer. */
+@layer components {
+  .portfolio-gutter {
+    padding-inline: clamp(1.25rem, 5vw, 5rem);
+  }
+
+  .portfolio-container {
+    width: 100%;
+    max-width: 100rem;
+    margin-inline: auto;
+  }
+
+  .portfolio-mobile-menu {
+    inset-inline: clamp(1.25rem, 5vw, 5rem);
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

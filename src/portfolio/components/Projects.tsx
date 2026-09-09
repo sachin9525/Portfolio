@@ -21,8 +21,8 @@ export const Projects: React.FC = () => {
   });
 
   return (
-    <section id="projects" className="py-20 px-4 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="portfolio-gutter py-20 relative">
+      <div className="portfolio-container">
 
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12">
